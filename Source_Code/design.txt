@@ -1,0 +1,239 @@
+Problem 1:
+The rule:
+- the wolf needs to kill all the pigs.
+- the wolf has an amount of skill, each time the wolf projects, this number is decreased. Different types of wind requires different amounts of skill.
+- the wolf dies when the skill is 0.
+- the game is ended if the wolf dies (lose) or all the pigs are killed (win).
+
+** to project, the user needs to press on wolf (long press - 1s) to increase the power of the projection.
+
+Problem 2:
+a)
++++ Wolf Breath Direction & Power.
+- create two more classes:
+	1. GameArrow: to control the arrow view, recognize the rotation gesture on the arrow and keep the angle value.
+	2. GamePower: to control the power bar, show animation (when users increase the power of breathe) and keep the value of the power.  there is also a range of power.
+- GameWolf has a GameArrow and a GamePower to keep the angle and the power for the projectile.
+- Users rotate the arrow to change the angle.
+- Users press the wolf (long press gesture) to increase the power, the power will stop increasing when it reaches to the maximum value. Whenever the users begin pressing, the power will be reset to the minimum value before increasing. When the press gesture ends, the wolf blows the wind.
+
++++ integration the power of wolf breath with the physics engine
+Create a class GameWind (it has body, shape, mass. .. - a physical body)
+When the wolf blows, an object GameWind is created, added to the space (the world) and  apply an impulse to the wind with the direction based on the arrow angle,  and the strength based on the power value.
+
+++ Why: 
+At first, I intended to create the GameWind as a subclass of GameObject (like GamePig, GameWolf …) and add to space when the game starts (of course, it won't be showed on the screen until the wolf projects).  However, it was a bad idea. It leaded to many problems when I tried to implement the wolf breath. Hence, I create GameWind as a new class (not a subclass of GameObject) and GameWolf will create a GameWind object when the wolf projects. It is much easy to implement (also easy to add different types of wind)
+
+b) I use the open source Physics Engine (Chipmunk).
+++Why?
+The first reason is that I want to know how other physics engines are implemented and learn more from their ways to organize the class, objects…
+The second reason is that I realize that Chipmunks is very easy to use while I will have to do a lot of things and spend a lot of time if I want to use mine. 
+
+++ how it works:
+Chipmunk is a 2D physical engine. Chipmunk simulates physics behavior in a “virtual Chipmunk space” (like the world in PS4). You can add objects to this space, tell Chipmunk about any forces that are acting upon these objects (gravity, wind…) and add the collision handler (object A and B, object A and C…). 
+A Chipmunk body represents an object in the Chipmunk virtual space. It contains one shape that represent the object’s geometry. There are two kinds of Chipmunk bodies : dynamic bodies are bodies that can move and static bodies are bodies that never move (such as borders…). For each Chipmunk body, you can specify how much mass it has.
+When you create shapes, you can specify whether they are boxes, circles, polygons. On each shape, you can set several properties such as elasticity and friction.
+
+++ how to integrate your project with the engine:
+The first thing is to add the chipmunk body and chipmunk shape into GameObject, foreach type of GameObject, it will have different mass, elasticity and friction as well as shape ( I use two types of shape: circle for wind and box for others). I also implement a method for each GameObject to update its view position with the chipmunk body position.
+The second thing is to create a chipmunk space. Add the bounds to the space (borders). Add the collision handlers to perform different behaviors for the collisions in the game. Add all the GameObject to space when the game starts. Use CADisplayLink NSRunLoop to make Chipmunk compute the steps of the simulation.
+
+++how the design of the open source engine differs from the physics engine in PS4
+Truly speaking, the concept is the same. It also has a world (space in chipmunk), body, collision.
+The main difference comes from the way they design the physics engine to support different type of shapes and different types of collision.
+
+c) Object-object interactions
+As I mentioned in the above part that the chipmunk supports the collision handles. I just need to add the handles for the collision between different types of GameObject.
+
+d) Start the game
+I use the CADisplayLink api. This will call the selector you specify when the screen contents needs to be updated. CADisplayLink works very much like an NSTimer.  You can set it to call a method on every tick, but instead of setting a time interval, the time interval is determined by the screen’s refresh rate.  When you’re ready to use the display link you add it to the run loop, and the method you handed to it will fire until you call the “invalidate” method on it. It improves the smoothness of the game.
+Disadvantage: CADisplayLink is only available for IOS 3.1+
+
+Problem 3: Integration Testing
+
++ Black-box testing
+  - Test level designer
+        * Test background loads ok and is scrollable (still scrollable with game objects)
+	* Test save game and load game:
+	Test implementation of button
+	  - save, load:
+		Check save without providing name.
+		Click save and confirm (save the level and return the list game menu)
+		Click save and cancel (don't save and close the dialog)
+		Check save without wolf
+		Check save without pig
+	  	Save/load empty screen
+		Save/load one object (try different types)
+		Save/load one object of each type
+		Save/load with many objects
+		Save/load different levels (different names, wolf skills)
+		Save/load with different background images
+	  - reset:
+		Clear empty screen
+		Clear screen with one object
+		Clear screen with one object of each type
+		Clear screen with many objects
+	  - background button:
+		click different background image buttons - change the images
+	  - back button: back to the list of levels
+	Test implementation of game objects (wolf, pig, obstacle)
+ 	  - Drag in palette:
+		to game area
+		When gamearea is scrolled
+		When gamearea is not scrolled
+		to palette or button area
+	  - Drag in gamearea
+		to game area
+		to palette
+		to the ground
+	  - Rotate and resize in palette (nothing happens)
+	  - Rotate and resize in gamearea
+	  - Drag, Rotate, Resize then Move
+	  - Drag, Resize, Rotate then Move
+	  - Double tap in palette
+		After rotating and resizing in gamearea
+		Without rotating and resizing in gamearea
+	  - Double tap in gamearea
+	  - Single tap for obstacle in gamearea
+	Test Compliance with Game Rules
+	  - Check that not more than one wolf can be created
+	  - Check that multiple obstacles can be created
+	  - Check that multiple pigs can be created
+  - Test level edit:
+	* Test background loads correctly and is scrollable (still scrollable with game objects)
+	* Test game objects load ok with correct position, scale, rotation
+	* test wolf skill and game name are correct.
+	* do the same test for level design.
+	* save the level test correctly.
+	* delete level correctly and return users to list of levels view.
+  - Test start game
+	* Test background loads correct and is scrollable (still scrollable with game objects)
+	* Test game objects load ok with correct position, scale, rotation
+	* Test wolf-skill load correctly
+	- reset:
+		clear the current state of game, score, skills
+		load the game correctly
+		reset when the game starts
+		reset when users have already played
+  - Test wolf breath:
+	* select different angles (wind moves correctly - following the direction)
+	* select different power levels (wind should be impulsed differently and increase strength when the power level is increased)
+	* select different types of wind - check the behavior, colors, collision
+	* test the life time of wolf breath -  disappear within a certain time or hit objects (more details on collision types)
+	
+  - Test the physics engine
+	- gravity: Objects fall down with increasing velocity.
+	- test friction
+  	- collision types:
+		+ Wind and border
+			- wind and top, left, right borders -> wind disappears
+			- wind and bottom border (ground) -> wind bounces
+			- test with all types of wind
+		+ Wind and block
+			- when wind.type >= block.type, the block is destroyed while the power of the wolf breath is halved
+			- when wind.type < block.type
+				+ apply an impulse on the block.
+				+ wind disappears if it is not a slight touch.
+			- test with all types of wind
+		+ Wind and pig:
+			- reduce the heath of the pig (the reduced amount is based on the impulse and type of wind).
+			- wind disappears if it is not a slight touch.
+			- test with all types of wind.
+		+ Block and pig:
+			- reduce the heath of pig (the reduced amount is based on the impulse)
+			- test with all types of block.
+		+ Block and wolf:
+			- deduct the skill of wolf and remove the block from gamearea
+	- test collision between two objects, three objects.
+   - Test end game:
+	- end game when all the pigs are killed or the skill of wolf is 0.
+	- test when the skill of wolf is 0 and all the pigs are killed.
+	- win when all the pigs are killed.
+	- save the highest score.
+   - Test the game level menu:
+	- list down all the game levels
+	- test the level button (load the correct level to play, edit or delete) 
+	- update the level menu when a new game level is added or deleted
+	- test swipe gesture.
++ Glass-box testing
+   - GameDatabaseAccess:
+	- getListOfLevels
+	- getLevelDetails:levelId
+	- deleteLevel:levelId
+	- updateHighScore:newHighScore levelId:levelId
+	- updateLevelWithLevelModel:levelModel gameModels:gameModels
+	- sqlInsertStringFormatFromGameModels:gameModels levelId:levelId
+	test by checking the sqlite database
+
+   - GameLevelMenuViewCotroller:
+	- test loading the list of levels.
+	- test segue (send correct information of selected level)
+   - GamePlayViewController:
+	- viewDidLoad
+	- setScore:newScore
+	- updateWolfSKill
+	- pigDied
+	- endGame
+	- backLevelList
+	- reset (check loading from database, adding into object array, count the number)
+	- removeObject
+	- addObjectToSpace
+	- removeObjectFromSpace
+	- getObjectFromBody
+	- update
+	- test the collision handlers (check impulse, type of objects)
+   - GameAddLevelViewController (not only add a new level but it is also implemented to edit levels)
+	- viewDidLoad
+	- save (test all the game objects on game area are save correctly in the database)
+	- deleteLevel
+	- reset
+	- addObject (count number of elements in the array)
+	- removeObject
+   - GameObject
+	- initWithUIImage
+	- updatePosition
+   - GameWolf
+	- initWithIsInGameArea
+	- setTypeWind
+	- setPhysicalEngine
+	- updatePosition
+	- startBreath ( test the impulse)
+   - GamePig
+	- initWithIsInGameArea
+	- setPhysicalEngine
+   - GameBlock
+	- initWithIsInGameArea
+	- setPhysicalEngine
+   - GameArrow
+	- initWithPosition
+   - GamePower
+	- initWithPosition
+	- changePower
+   - GameWind
+	- initWithPosition
+	- getSkillRequiredOfType
+   - GameLevel  
+	- initWithModel
+   - GameLevelModel
+	- initWithKey
+	
+
+Problem 4:
+Extra features:
+- the skill of wolf: this number will decide the type of winds wolf can project and when the skill is 0, wolf should die.
+- users can choose different backgrounds from the list
+
+** Chipmunk has two type of body, static and dynamic. I have implemented features for the bonus skill objects. When the wolf projects these static objects (such as apple, ice-cream, chili), the wolf skill is increased. However, I have got some bugs with chipmunk and I don't have enough time to fix it before deadline. Hence, I have to remove these features and submit my previous version.
+
+Problem 5:
+For PS3, my implementation violates several rules of MVC. For example, the model stores the imagePath ( while the controller should know which image to initiate the view with) or GameObject shouldn't know about GameViewController. Hence, in PS5, I have to change these mistakes (I used delegate and NSNotification)
+For PS4, I got some problems when I try to add more shapes and collision detections (so I use chipmunk). In my old design, I only have a collision detection between Rectangle shapes. Hence, if I want to use my physics engine, I need to add method collisionDetection:(PhysicalBody *) function to detect the object kind (be it RectangleBody or CircleBody) and call the correct collisionDetection function
+
+
+Bonus problem
+a) spend two days with the requirement
+   and one week for the design and coolness features.
+b) practice more and more
+c) So far, your comment is very useful. That's enough. Thank you so much.
+d) Yes, it is well designed.
+In the problem 4, the formula should be fixed.

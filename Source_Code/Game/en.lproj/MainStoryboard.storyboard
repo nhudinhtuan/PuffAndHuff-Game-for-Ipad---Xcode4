@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1938" systemVersion="11C74" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="0Ce-0A-mh6">
+    <dependencies>
+        <development defaultVersion="4200" identifier="xcode"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="933"/>
+    </dependencies>
+    <scenes>
+        <scene sceneID="ixg-ot-RVR">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ynR-ak-Dod" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="7WN-bl-QSZ" customClass="GameAddLevelViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0Yt-nn-9dy">
+                        <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" id="gsT-1L-IAn">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="748"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </scrollView>
+                            <view contentMode="scaleToFill" id="7z8-BF-uE7">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="95"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.59772636033606696" green="0.80790848910071433" blue="0.87509964923469385" alpha="0.70000000000000007" colorSpace="calibratedRGB"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="center" image="back_button2.png" id="xPb-gb-9ZX">
+                                <rect key="frame" x="20" y="646" width="95" height="96"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="center" image="refresh_button.png" id="LuJ-hS-dfn">
+                                <rect key="frame" x="123" y="646" width="95" height="96"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" image="saveLevel.png" id="IST-JL-zUC">
+                                <rect key="frame" x="905" y="645" width="99" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="deleteButton.png" id="jMV-Jg-A7V">
+                                <rect key="frame" x="798" y="645" width="99" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView alpha="0.40000000000000002" contentMode="center" image="background_icon.png" id="Zti-lQ-VFI">
+                                <rect key="frame" x="954" y="20" width="46" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView alpha="0.40000000000000002" contentMode="scaleToFill" image="background_icon2.png" id="edW-T0-9Ok">
+                                <rect key="frame" x="893" y="19" width="46" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView alpha="0.40000000000000002" contentMode="center" image="background_icon3.png" id="fHB-W6-dOS">
+                                <rect key="frame" x="832" y="19" width="46" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView alpha="0.40000000000000002" contentMode="center" image="background_icon4.png" id="tx9-cZ-Pzh">
+                                <rect key="frame" x="770" y="19" width="46" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="hOe-dx-ziV"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="BG1_button" destination="Zti-lQ-VFI" id="Hju-6w-LL3"/>
+                        <outlet property="BG2_button" destination="edW-T0-9Ok" id="asx-lb-d1r"/>
+                        <outlet property="BG3_button" destination="fHB-W6-dOS" id="Z5C-yJ-KWz"/>
+                        <outlet property="BG4_button" destination="tx9-cZ-Pzh" id="EFE-9X-8lf"/>
+                        <outlet property="backButton" destination="xPb-gb-9ZX" id="jhG-4D-5Et"/>
+                        <outlet property="deleteButton" destination="jMV-Jg-A7V" id="o67-cH-YSj"/>
+                        <outlet property="gamearea" destination="gsT-1L-IAn" id="RbJ-D7-Zau"/>
+                        <outlet property="palette" destination="7z8-BF-uE7" id="7HY-cn-hSo"/>
+                        <outlet property="resetButton" destination="LuJ-hS-dfn" id="NtI-UV-8iI"/>
+                        <outlet property="saveButton" destination="IST-JL-zUC" id="zst-fB-zVP"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="3392" y="729"/>
+        </scene>
+        <scene sceneID="uo4-y3-7eD">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s1o-1L-SuE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="m1V-pN-UkX" customClass="GameLevelMenuViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4u1-Af-4yY">
+                        <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" image="background_menu.jpg" id="cOR-r2-7PR">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="748"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="back_button.png" id="B8v-uH-Syk">
+                                <rect key="frame" x="20" y="605" width="90" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" id="gcc-BC-Q3w">
+                                <rect key="frame" x="90" y="89" width="845" height="430"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3mo-Mi-1M9">
+                                        <rect key="frame" x="20" y="20" width="805" height="390"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </scrollView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.76871412630000002" green="0.76871412630000002" blue="0.76871412630000002" alpha="0.5" colorSpace="calibratedRGB"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="add_level.png" id="dZ2-dC-LOC">
+                                <rect key="frame" x="905" y="595" width="99" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="iFV-2K-azU"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="addLevelButton" destination="dZ2-dC-LOC" id="QNi-9l-Vgi"/>
+                        <outlet property="backButton" destination="B8v-uH-Syk" id="WVQ-Hl-qHf"/>
+                        <outlet property="background" destination="cOR-r2-7PR" id="7j3-cT-S9f"/>
+                        <outlet property="levelArea" destination="3mo-Mi-1M9" id="TAe-VT-ptp"/>
+                        <outlet property="levelFrameView" destination="gcc-BC-Q3w" id="I4G-LM-zhj"/>
+                        <segue destination="MXn-xn-YFV" kind="push" identifier="PlayGameSegue" id="Tu3-wC-blE"/>
+                        <segue destination="7WN-bl-QSZ" kind="push" identifier="EditGameLevel" id="j2j-br-E03"/>
+                        <segue destination="7WN-bl-QSZ" kind="push" identifier="NewGameLevel" id="wJp-2b-Anw"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1732" y="-162"/>
+        </scene>
+        <scene sceneID="zzc-4U-q8A">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8FV-r0-FWy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="MXn-xn-YFV" customClass="GamePlayViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4By-Bo-hMf">
+                        <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" id="9Z1-z4-FCS">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="748"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </scrollView>
+                            <view contentMode="scaleToFill" id="gKo-wZ-HU2">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="95"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.59940074012885058" green="0.81017164116884133" blue="0.87755102040816324" alpha="0.34000000000000002" colorSpace="calibratedRGB"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="center" image="wolf_skill.png" id="o3a-FL-iIL">
+                                <rect key="frame" x="835" y="47" width="81" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="center" image="score.png" id="Qxv-6p-ps5">
+                                <rect key="frame" x="813" y="12" width="95" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" image="backListLevel.png" id="3z1-jC-nbx">
+                                <rect key="frame" x="11" y="1" width="95" height="96"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="refresh_button.png" id="wZe-eq-ByZ">
+                                <rect key="frame" x="113" y="1" width="95" height="96"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="30" id="apD-dZ-ajj">
+                                <rect key="frame" x="913" y="54" width="92" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="30" id="UsQ-Z2-oeK">
+                                <rect key="frame" x="913" y="16" width="92" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView contentMode="center" image="windType1.png" id="O5K-QO-UWp">
+                                <rect key="frame" x="346" y="659" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView contentMode="center" image="windType2.png" id="CVY-Ib-vv9">
+                                <rect key="frame" x="439" y="659" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView contentMode="center" image="windType3.png" id="YDj-Rb-OHU">
+                                <rect key="frame" x="532" y="659" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView contentMode="center" image="windType4.png" id="Yhn-oj-hgz">
+                                <rect key="frame" x="625" y="659" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="wind_select_cursor.png" id="Ljz-Zn-qqp">
+                                <rect key="frame" x="304" y="696" width="130" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="1S" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="8" id="tmw-sQ-WRr">
+                                <rect key="frame" x="350" y="705" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Huff and Puff" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="40" id="AaO-ri-Trf">
+                                <rect key="frame" x="253" y="20" width="518" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="D5h-KB-uRx"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="backButton" destination="3z1-jC-nbx" id="zyC-TO-TL9"/>
+                        <outlet property="gamearea" destination="9Z1-z4-FCS" id="lIt-cd-maz"/>
+                        <outlet property="levelTitle" destination="AaO-ri-Trf" id="n4B-Me-b9z"/>
+                        <outlet property="mainView" destination="4By-Bo-hMf" id="0WP-p6-98S"/>
+                        <outlet property="refreshButton" destination="wZe-eq-ByZ" id="Oo6-6j-0FR"/>
+                        <outlet property="scoreLabel" destination="UsQ-Z2-oeK" id="hsd-L9-BVY"/>
+                        <outlet property="windType0View" destination="O5K-QO-UWp" id="e9o-wE-Xju"/>
+                        <outlet property="windType1View" destination="CVY-Ib-vv9" id="Qfi-a4-vGz"/>
+                        <outlet property="windType2View" destination="YDj-Rb-OHU" id="VB0-lb-Cen"/>
+                        <outlet property="windType3View" destination="Yhn-oj-hgz" id="kwT-pP-LOY"/>
+                        <outlet property="windTypeSelectView" destination="Ljz-Zn-qqp" id="Crk-Rw-Fza"/>
+                        <outlet property="windTypeSkillRequire" destination="tmw-sQ-WRr" id="Bwk-lN-Ura"/>
+                        <outlet property="wolfSkillImgView" destination="o3a-FL-iIL" id="qzv-Z4-hUY"/>
+                        <outlet property="wolfSkillLabel" destination="apD-dZ-ajj" id="vCm-Nt-OUh"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="3384" y="-530"/>
+        </scene>
+        <scene sceneID="HJo-cy-tkI">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="haD-GL-oSC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="483-Jd-wBe" customClass="GameViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1ut-RR-vet">
+                        <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" image="background_menu.jpg" id="saV-vW-f5Z">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="748"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="center" image="Huff_and_puff_title.png" id="lNU-Xy-erw">
+                                <rect key="frame" x="181" y="29" width="663" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="center" image="play_button.png" id="bTl-u7-EQS">
+                                <rect key="frame" x="366" y="176" width="293" height="257"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="pig.png" id="d5O-U5-fnF">
+                                <rect key="frame" x="525" y="244" width="55" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="sound_icon.png" id="6zw-Fc-kzE">
+                                <rect key="frame" x="20" y="599" width="90" height="88"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="7cs-Eb-zO6"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="background" destination="saV-vW-f5Z" id="52H-5I-PQT"/>
+                        <outlet property="pig" destination="d5O-U5-fnF" id="WHy-eG-RwH"/>
+                        <outlet property="playButton" destination="bTl-u7-EQS" id="jih-1n-F7W"/>
+                        <outlet property="sound" destination="6zw-Fc-kzE" id="w03-OA-Z8y"/>
+                        <segue destination="m1V-pN-UkX" kind="push" identifier="LevelMenu" id="UgF-E8-y1s"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="-22" y="-182"/>
+        </scene>
+        <scene sceneID="VdP-9c-vy6">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iz3-st-aeg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController navigationBarHidden="YES" id="0Ce-0A-mh6" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="529-DN-hb0">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="483-Jd-wBe" kind="relationship" relationship="rootViewController" id="Twp-CC-r2Y"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-996" y="-182"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Huff_and_puff_title.png" width="423" height="93"/>
+        <image name="add_level.png" width="99" height="100"/>
+        <image name="backListLevel.png" width="95" height="96"/>
+        <image name="back_button.png" width="90" height="80"/>
+        <image name="back_button2.png" width="95" height="96"/>
+        <image name="background_icon.png" width="46" height="47"/>
+        <image name="background_icon2.png" width="46" height="47"/>
+        <image name="background_icon3.png" width="46" height="47"/>
+        <image name="background_icon4.png" width="46" height="47"/>
+        <image name="background_menu.jpg" width="2560" height="1440"/>
+        <image name="deleteButton.png" width="99" height="100"/>
+        <image name="pig.png" width="55" height="55"/>
+        <image name="play_button.png" width="257" height="269"/>
+        <image name="refresh_button.png" width="95" height="96"/>
+        <image name="saveLevel.png" width="99" height="100"/>
+        <image name="score.png" width="95" height="25"/>
+        <image name="sound_icon.png" width="99" height="100"/>
+        <image name="windType1.png" width="50" height="50"/>
+        <image name="windType2.png" width="50" height="50"/>
+        <image name="windType3.png" width="50" height="50"/>
+        <image name="windType4.png" width="50" height="50"/>
+        <image name="wind_select_cursor.png" width="130" height="48"/>
+        <image name="wolf_skill.png" width="81" height="36"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="wJp-2b-Anw"/>
+    </inferredMetricsTieBreakers>
+</document>
