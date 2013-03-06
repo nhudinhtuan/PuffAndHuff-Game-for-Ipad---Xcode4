@@ -1,8 +1,7 @@
-Puff and Huff v.2 for iPad
+Puff and Huff v1.0 for iPad
 26.03.2012
 Created by Nhu Dinh Tuan
 nhudinhtuan@gmail.com
-http://fb-school.com/
 ========================================================================
 This project is to develop the iPad game which is similar to Puff and Huff on Window Mobile (http://www.youtube.com/watch?v=MGYaWJBtNZM)
 ========================================================================
